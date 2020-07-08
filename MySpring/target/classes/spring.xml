@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!--无参构造函数-->
+    <bean id="UserEntity" class="com.spring.UserEntity" />
+    <!--有参构造函数-->
+    <bean id="UserEntity1" class="com.spring.UserEntity">
+        <constructor-arg name="name" value="heihei"></constructor-arg>
+        <constructor-arg name="age" value="20"></constructor-arg>
+    </bean>
+    <bean id="objectfactory" class="com.spring.ObjectFactory"></bean>
+    <!--factory-bean 加载对象  factory-method加载的方法-->
+    <bean id="getUserEntity" factory-bean="objectfactory" factory-method="getUserEntity"></bean>
+    <bean id="StaticUserEntity" class="com.spring.ObjectFactory" factory-method="StaticUserEntity"></bean>
+</beans>

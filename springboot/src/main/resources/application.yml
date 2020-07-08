@@ -1,0 +1,12 @@
+#person:
+#  lastName: guaiguai
+#  age: 22
+#  boss: true
+#  birth: 2019/3/8
+#  maps: {k1: v1,k2: 20}
+#  lists:
+#    - gougou
+#    - maomao
+#  dog:
+#    name: gougou
+#    age: 10

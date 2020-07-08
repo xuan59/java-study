@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="css/layui.css"/>
+    <style>
+        body{
+            background-color: #1E9FFF;
+        }
+        .layui-col-md6{
+            width: 300px;
+            margin-top:30px;
+            margin-right: 20px;
+            float: left;
+        }
+        .content{
+            text-align: center;
+            padding: 50px;
+        }
+        .header{
+            text-align: right;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-col-md12">
+    <div class="layui-card">
+        <div class="layui-card-header header" >
+            <a sec:authorize="!isAuthenticated()" href="login">登录</a>&nbsp;&nbsp;
+            <span sec:authorize="isAuthenticated()" >用户名:<a sec:authentication="name"></a></span>
+            <a sec:authorize="isAuthenticated()" href="/logout">注销</a>
+        </div>
+    </div>
+</div>
+<div class="content">
+<div class="layui-col-md6" sec:authorize="hasRole('vip1')">
+    <div class="layui-card">
+        <div class="layui-card-header">会员1</div>
+        <div class="layui-card-body">
+            <a href="level1/1">权限1</a><br>
+            <a href="level1/2">权限2</a><br>
+            <a href="level1/3">权限3</a><br>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md6" sec:authorize="hasRole('vip2')">
+    <div class="layui-card">
+        <div class="layui-card-header">会员2</div>
+        <div class="layui-card-body">
+            <a href="level2/4">权限1</a><br>
+            <a href="level2/5">权限2</a><br>
+            <a href="level2/6">权限3</a><br>
+        </div>
+    </div>
+</div>
+<div class="layui-col-md6" sec:authorize="hasRole('vip3')">
+    <div class="layui-card">
+        <div class="layui-card-header">会员3</div>
+        <div class="layui-card-body">
+            <a href="level3/7">权限1</a><br>
+            <a href="level3/8">权限2</a><br>
+            <a href="level3/9">权限3</a><br>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
